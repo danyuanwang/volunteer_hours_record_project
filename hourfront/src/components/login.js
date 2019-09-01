@@ -14,7 +14,7 @@ const Login = () => {
         setUser({ ...user, [event.target.name]: event.target.value })
 
     }
-   const logout = () => {
+    const logout = () => {
         sessionStorage.removeItem("jwt");
         setAuth(false);
     }
@@ -48,7 +48,7 @@ const Login = () => {
             < div >
                 <TextField name='username'
                     label="Username" onChange={handleChange} /><br />
-                <TextField type='password'
+                <TextField type='password' name="password"
                     label="Password" onChange={handleChange} /><br /><br />
                 < Button variant="outlined" color="primary"
                     onClick={login} >
@@ -56,7 +56,7 @@ const Login = () => {
             </ Button >
                 < ToastContainer autoClose={1500} />
             </ div>
-            
+
         );
     }
 }

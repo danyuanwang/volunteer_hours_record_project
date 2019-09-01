@@ -31,8 +31,8 @@ public class VolunteerhoursrecorderApplication {
 		
 		return args -> {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-			User user1 = new User(20,"admin", "$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi", "bob@mail.com", "ADMIN");
-			User user2 = new User(37, "user", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG", "hi@mail.com", "USER");
+			User user1 = new User(20,"admin", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG", "bob@mail.com", "ADMIN");
+			User user2 = new User(37, "user", "$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi", "hi@mail.com", "USER");
 			userRepository.save(user1);
 			userRepository.save(user2);
 
