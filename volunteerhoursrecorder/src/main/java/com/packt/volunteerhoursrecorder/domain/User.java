@@ -17,13 +17,18 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable = false)
 	private long userId;
+	
 	@Column(nullable = false)
 	private int totalHours;
+	
 	@Column(nullable = false, unique = true)
 	private String username;
+	
 	@Column(nullable = false)
 	private String password;
+	
 	private String role;
+	
 	public String getRole() {
 		return role;
 	}

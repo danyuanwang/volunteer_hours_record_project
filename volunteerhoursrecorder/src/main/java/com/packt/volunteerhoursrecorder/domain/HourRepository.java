@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface HourRepository extends CrudRepository<Hours, Long> {
-	List<Hours> findbyDate(@Param("date") Date date);
+	List<Hours> findByDate(@Param("date") Date date);
 
-	List<Hours> findbyUser(@Param("user") User user);
+	List<Hours> findByUser(@Param("user") User user);
 }
