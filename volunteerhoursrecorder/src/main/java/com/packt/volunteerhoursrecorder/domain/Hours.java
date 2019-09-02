@@ -67,5 +67,4 @@ public class Hours {
 		this.date = date;
 		this.user = user;
 	}
-
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import org.hibernate.engine.internal.Cascade;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,7 +29,7 @@ public class User {
 	private String password;
 	
 	private String role;
-	
+
 	public String getRole() {
 		return role;
 	}
