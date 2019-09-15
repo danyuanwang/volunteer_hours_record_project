@@ -8,21 +8,24 @@ import javax.persistence.*;
 public class Hours {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
+	private long id;
+	
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
 	private int durationHours;
 	private String confirmationEmail;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user")
 	private User user;
 
 	public long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public Date getDate() {
