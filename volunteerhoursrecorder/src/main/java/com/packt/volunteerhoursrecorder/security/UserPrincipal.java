@@ -1,5 +1,7 @@
-package com.packt.volunteerhoursrecorder.domain;
+package com.packt.volunteerhoursrecorder.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.packt.volunteerhoursrecorder.domain.User;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

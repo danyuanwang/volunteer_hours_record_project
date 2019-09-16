@@ -1,4 +1,4 @@
-package com.packt.volunteerhoursrecorder;
+package com.packt.volunteerhoursrecorder.security;
 import java.io.IOException;
 
 import javax.servlet.FilterChain;

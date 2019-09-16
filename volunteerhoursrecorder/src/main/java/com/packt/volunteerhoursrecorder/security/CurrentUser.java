@@ -1,4 +1,4 @@
-package com.packt.volunteerhoursrecorder.domain;
+package com.packt.volunteerhoursrecorder.security;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import java.lang.annotation.*;
 

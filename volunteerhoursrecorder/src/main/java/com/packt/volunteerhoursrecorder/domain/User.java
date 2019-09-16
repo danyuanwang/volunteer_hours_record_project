@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.packt.volunteerhoursrecorder.domain.audit.DateAudit;
 
 @Entity
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
@@ -36,11 +37,11 @@ public class User extends DateAudit {
 	private int totalHours;
 	
 	@NotBlank
-    @Size(max = 40)
+    @Size(max = 128)
     private String name;
 
 	@Column(nullable = false, unique = true)
-	@Size(max = 40)
+	@Size(max = 128)
 	private String username;
 
 	@Column(nullable = false)
@@ -48,8 +49,8 @@ public class User extends DateAudit {
 
 	@Column(nullable = false)
 	@NaturalId
-	@Size(max = 40)
-	@Email
+	@Size(max = 128)
+	@Email//(regexp ="\"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$\"")
 	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")

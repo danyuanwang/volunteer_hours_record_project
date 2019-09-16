@@ -1,4 +1,4 @@
-package com.packt.volunteerhoursrecorder.domain;
+package com.packt.volunteerhoursrecorder.domain.audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

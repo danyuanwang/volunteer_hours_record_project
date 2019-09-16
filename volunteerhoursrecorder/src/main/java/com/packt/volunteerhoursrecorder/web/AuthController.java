@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.packt.volunteerhoursrecorder.JwtTokenProvider;
 import com.packt.volunteerhoursrecorder.domain.Role;
 import com.packt.volunteerhoursrecorder.domain.RoleName;
 import com.packt.volunteerhoursrecorder.domain.RoleRepository;
@@ -25,6 +24,7 @@ import com.packt.volunteerhoursrecorder.payload.ApiResponse;
 import com.packt.volunteerhoursrecorder.payload.JwtAuthenticationResponse;
 import com.packt.volunteerhoursrecorder.payload.LoginRequest;
 import com.packt.volunteerhoursrecorder.payload.SignUpRequest;
+import com.packt.volunteerhoursrecorder.security.JwtTokenProvider;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -78,8 +78,12 @@ public class AuthController {
         }
 
         // Creating user's account
-        User user = new User(signUpRequest.getName(), signUpRequest.getUsername(),
-                signUpRequest.getEmail(), signUpRequest.getPassword());
+        User user = new User(
+        		signUpRequest.getName(), 
+        		signUpRequest.getUsername(), 
+        		signUpRequest.getPassword(),
+                signUpRequest.getEmail()
+                );
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 

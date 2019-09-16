@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.packt.volunteerhoursrecorder.domain.User;
-import com.packt.volunteerhoursrecorder.domain.UserPrincipal;
 import com.packt.volunteerhoursrecorder.domain.UserRepository;
+import com.packt.volunteerhoursrecorder.security.UserPrincipal;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

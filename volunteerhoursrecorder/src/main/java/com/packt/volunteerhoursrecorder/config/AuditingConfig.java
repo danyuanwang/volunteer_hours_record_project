@@ -1,4 +1,4 @@
-package com.packt.volunteerhoursrecorder;
+package com.packt.volunteerhoursrecorder.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
