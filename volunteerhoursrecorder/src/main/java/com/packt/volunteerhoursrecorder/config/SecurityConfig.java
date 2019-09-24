@@ -24,7 +24,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.packt.volunteerhoursrecorder.security.AuthenticationFilter;
-import com.packt.volunteerhoursrecorder.security.JwtAuthenticationFilter;
 import com.packt.volunteerhoursrecorder.security.LoginFilter;
 import com.packt.volunteerhoursrecorder.service.CustomUserDetailsService;
 import com.packt.volunteerhoursrecorder.service.JwtAuthenticationEntryPoint;
@@ -44,11 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
-
-	@Bean
-	public Filter jwtAuthenticationFilter() {
-		return new AuthenticationFilter();
-	}
 
 	@Bean(BeanIds.AUTHENTICATION_MANAGER)
 	@Override
@@ -96,7 +90,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           .and().headers().frameOptions().sameOrigin();
 
 		   // Add our custom JWT security filter
-		   http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+		   http.addFilterBefore(
+				   new LoginFilter("/api/auth/signin",authenticationManagerBean()), 
+				   UsernamePasswordAuthenticationFilter.class
+				   );
+		   http.addFilterBefore(
+				   new AuthenticationFilter(), 
+				   UsernamePasswordAuthenticationFilter.class
+				   );
 
 	}
 

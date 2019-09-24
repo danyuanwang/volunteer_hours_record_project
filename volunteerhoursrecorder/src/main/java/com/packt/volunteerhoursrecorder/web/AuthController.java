@@ -21,11 +21,8 @@ import com.packt.volunteerhoursrecorder.domain.User;
 import com.packt.volunteerhoursrecorder.domain.UserRepository;
 import com.packt.volunteerhoursrecorder.exception.AppException;
 import com.packt.volunteerhoursrecorder.payload.ApiResponse;
-import com.packt.volunteerhoursrecorder.payload.JwtAuthenticationResponse;
 import com.packt.volunteerhoursrecorder.payload.LoginRequest;
 import com.packt.volunteerhoursrecorder.payload.SignUpRequest;
-import com.packt.volunteerhoursrecorder.security.JwtTokenProvider;
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Collections;
@@ -45,25 +42,6 @@ public class AuthController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
-    @Autowired
-    JwtTokenProvider tokenProvider;
-
-    @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsernameOrEmail(),
-                        loginRequest.getPassword()
-                )
-        );
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
-    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
