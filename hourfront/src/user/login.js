@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SERVER_URL } from "../constants.js";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Hourlist from "./Hourlist";
+//import Hourlist from "../components/Hourlist";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -40,7 +40,8 @@ const Login = () => {
       .catch(err => console.error(err));
   };
   if (isAuthenticated === true) {
-    return <Hourlist />;
+    return <div/>;
+    //<Hourlist />;
   } else {
     return (
       <div>
