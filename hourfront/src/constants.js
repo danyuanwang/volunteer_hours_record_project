@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://localhost:8080/';
+export const SERVER_URL = 'http://localhost:8080/api';
 export const ACCESS_TOKEN = 'accessToken';
 
 export const NAME_MIN_LENGTH = 4;

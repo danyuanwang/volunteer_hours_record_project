@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import { Route, withRouter, Switch } from "react-router-dom";
-import "./App.css";
 import { Layout, notification } from "antd";
-import Hourlist from "./components/Hourlist"
-import AddHours from "./components/AddHours"
+import React, { Component } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import "./App.css";
 import AppHeader from "./common/AppHeader";
-import NotFound from "./common/NotFound"
-import PrivateRoute from "./common/PrivateRoute"
 import LoadingIndicator from "./common/LoadingIndicator";
-import Signup from "./user/Signup"
-import Profile from "./user/Profile"
-import Login from "./user/login";
-import { getCurrentUser } from "./util/APIUtils";
+import NotFound from "./common/NotFound";
+import PrivateRoute from "./common/PrivateRoute";
+import AddHours from "./components/AddHours";
+import Hourlist from "./components/Hourlist";
 import { ACCESS_TOKEN } from './constants';
+import Login from "./user/login";
+import Profile from "./user/Profile";
+import Signup from "./user/Signup";
+import { getCurrentUser } from "./util/APIUtils";
 
 const { Content } = Layout;
 
@@ -85,12 +85,12 @@ class App extends Component {
     }
     return (
       <Layout className="app-container">
-        <AppHeader
+        {/* <AppHeader
           isAuthenticated={this.state.isAuthenticated}
           currentUser={this.state.currentUser}
           onLogout={this.handleLogout}
-        />
-        <Content className="app-content">
+        />*/}
+        <Content className="app-content"> 
           <div className="container">
             <Switch>
               <PrivateRoute

@@ -19,7 +19,7 @@ class Hourlist extends Component {
   }
   fetchHours = () => {
     const token = sessionStorage.getItem("jwt");
-    fetch(SERVER_URL + "api/hourses", {
+    fetch(SERVER_URL + "/hourses", {
       headers: { Authorization: token }
     })
       .then(response => response.json())
@@ -55,7 +55,7 @@ class Hourlist extends Component {
   };
   addHour(hours) {
     const token = sessionStorage.getItem("jwt");
-    fetch(SERVER_URL + "api/hourses", {
+    fetch(SERVER_URL + "hourses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +129,7 @@ class Hourlist extends Component {
     //  </tr>
 
     return (
-      <div classname="App">
+      <div className="App">
         <Grid container>
           <Grid item>
             <AddHour addHour={this.addHour} fetchHours={this.fetchHours} />

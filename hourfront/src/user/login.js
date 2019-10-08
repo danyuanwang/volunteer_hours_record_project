@@ -6,8 +6,23 @@ import Link from "@material-ui/core/Link";
 import Hourlist from "../components/Hourlist";
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
+import './login.css';
+
+import { makeStyles } from '@material-ui/core/styles'
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  link: {
+    margin: theme.spacing(1),  
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 const Login = () => {
+  const classes = useStyles();
   const [user, setUser] = useState({ username: "", password: "" });
   const [isAuthenticated, setAuth] = useState(false);
   const handleChange = event => {
@@ -20,7 +35,7 @@ const Login = () => {
   };
 
   const login = () => {
-    fetch(SERVER_URL + "api/auth/signin", {
+    fetch(SERVER_URL + "/auth/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +64,7 @@ const Login = () => {
     );
   } else {
     return (
-      <div>
+      <div  className="login-container">
         <TextField name="username" label="Username" onChange={handleChange} />
         <br />
         <TextField
@@ -60,10 +75,10 @@ const Login = () => {
         />
         <br />
         <br />
-        <Button variant="outlined" color="primary" onClick={login}>
+        <Button variant="outlined" color="primary" className={classes.button} onClick={login}>
           Login
         </Button>
-        <Link href='/signup'>
+        <Link href='/signup' color="inherit" className={classes.link}>
           signup
         </Link>
         <ToastContainer autoClose={1500} />
